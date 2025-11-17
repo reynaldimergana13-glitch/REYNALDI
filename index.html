@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Royal Dashboard</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">Royal Dashboard</div>
+
+      <nav>
+        <ul>
+          <li id="menu-home" class="menu active" onclick="goHome(true)">Home</li>
+          <li id="menu-mahasiswa" class="menu" onclick="showPage('mahasiswa')">Mahasiswa</li>
+          <li id="menu-kelas" class="menu" onclick="showPage('kelas')">Kelas</li>
+          <li id="menu-aktivitas" class="menu" onclick="highlightFromMenu('aktivitas')">Aktivitas</li>
+          <li id="menu-statistik" class="menu" onclick="highlightFromMenu('statistik')">Statistik</li>
+          <li id="menu-dokumen" class="menu" onclick="highlightFromMenu('dokumen')">Dokumen</li>
+          <li id="menu-settings" class="menu" onclick="showPage('settings')">Settings</li>
+          <li class="menu signout">Sign Out</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <!-- top search bar / header -->
+      <header class="topbar">
+        <div class="header-left">
+          <h1 id="welcomeTitle">Selamat Datang di Universitas Royal, <span id="mahasiswaNama">Nama Mahasiswa</span> <br /><span class="kelas-text">Kelas <span id="kelasNama">SI-3X</span></span></h1>
+          <p class="sub">Kamu memiliki Statistik, 3 Progres Kelas, 4 Aktivitas Selanjutnya dan 3 Lampiran Dokumen yang ada pada aplikasi ini.</p>
+        </div>
+        <div class="header-right">
+          <input class="search" placeholder="Cari Kelas, Dokumen, Aktifitas dll..." />
+          <img id="avatar" src="" alt="">
+          <div class="avatar">JD</div>
+        </div>
+      </header>
+
+      <!-- PAGES WRAPPER -->
+      <section id="page-home" class="page active">
+        <div class="grid">
+          <!-- Statistik -->
+       <div class="statistik-box">
+    <h3>Statistik Mahasiswa</h3>
+    <div class="chart-container">
+        <img src="statistik.svg" alt="Statistik Mahasiswa" class="chart-image">
+    </div>
+</div>
+          <!-- Progres Kelas -->
+          <div class="card small-card" id="box-progres">
+            <h4>Progres Kelas</h4>
+            <div class="prog-item"><strong>Matakuliah A</strong><span>+999 Pendaftar</span></div>
+            <div class="prog-item"><strong>Matakuliah B</strong><span>+3000 Pendaftar</span></div>
+            <div class="prog-item"><strong>Matakuliah C</strong><span>+4000 Pendaftar</span></div>
+            <div class="prog-item"><strong>Matakuliah D</strong><span>+10000 Pendaftar</span></div>
+            <div class="prog-item"><strong>Matakuliah E</strong><span>+10000 Pendaftar</span></div>
+
+          </div>
+
+          <!-- Aktivitas -->
+          <div class="card small-card" id="box-aktivitas">
+            <h4>Aktivitas Selanjutnya</h4>
+            <div class="act-item"><strong>Perkuliahan Daring 1</strong><div class="date">Senin, 15 Januari 2025</div></div>
+            <div class="act-item"><strong>Perkuliahan Daring 2</strong><div class="date">Selasa, 15 Februari 2025</div></div>
+            <div class="act-item"><strong>Perkuliahan Daring 3</strong><div class="date">Rabu, 15 Maret 2025</div></div>
+
+          </div>
+        </div>
+
+        <!-- Lampiran -->
+        <div class="card lampiran" id="box-dokumen">
+          <h4>Lampiran</h4>
+          <div class="file"><strong>Lampiran Dokumen 1</strong> - Matakuliah A | <a href="#">Lihat Dokumen</a></div>
+          <div class="file"><strong>Lampiran Dokumen 2</strong> - Matakuliah B | <a href="#">Lihat Dokumen</a></div>
+          <div class="file"><strong>Lampiran Dokumen 3</strong> - Matakuliah C | <a href="#">Lihat Dokumen</a></div>
+
+        </div>
+      </section>
+
+      <!-- MAHASISWA PAGE -->
+      <section id="page-mahasiswa" class="page">
+        <div class="card">
+          <h3>Halaman Mahasiswa</h3>
+          <p>Gunakan form di bawah untuk mengubah nama mahasiswa:</p>
+          <input id="inputNama" placeholder="Masukkan nama baru" />
+          <div class="row">
+            <button onclick="ubahMahasiswa()">Simpan Nama</button>
+            <button onclick="showPage('home', true)">Kembali ke Home</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- KELAS PAGE -->
+      <section id="page-kelas" class="page">
+        <div class="card">
+          <h3>Halaman Kelas</h3>
+          <p>Ubah nama kelas</p>
+          <input id="inputKelas" placeholder="Masukkan nama kelas baru" />
+          <div class="row">
+            <button onclick="ubahKelas()">Simpan Kelas</button>
+            <button onclick="showPage('home', true)">Kembali ke Home</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS (placeholder) -->
+      <section id="page-settings" class="page">
+        <div class="card">
+          <h3>Settings</h3>
+          <p>Opsi pengaturan (placeholder).</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="java.js"></script>
+</body>
+</html>
